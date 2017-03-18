@@ -1,7 +1,7 @@
-Software:	domfind
-Environment:	Python
+Software:     domfind (https://github.com/diogo-fernan/domfind)
+Environment:  Python
 
-Copyright © 2015 Diogo Fernandes.
+Copyright © 2017 Diogo A. B. Fernandes.
 All rights reserved.
 
 Redistribution of this software and use in source and binary forms, with 
