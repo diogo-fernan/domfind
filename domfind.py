@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Usage: domfind [-h] [-b] [-d <file>] [-p <sec>] [-t <thread>] [-u] [-v ...] [<domain> ...]
+"""Usage: domfind [-h] [-b | -d <file>] [-p <sec>] [-t <thread>] [-u] [-v ...] [<domain> ...]
 
 Find identical domain names with SOA DNS records under different Top Level Domains (TLDs).
 
