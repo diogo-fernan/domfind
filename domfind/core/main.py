@@ -11,11 +11,11 @@ thread = work.DEFAULT
 
 def run(arg, usage):
     def inarg():
-        global ina, pause, tldf, thread
         if not arg["--update"] and not arg["<domain>"]:
             print(usage)
             exit(0)
 
+        global ina, pause, tldf, thread
         try:
             pause = int(arg["--pause"])
             if int(pause) < 0:
@@ -62,7 +62,7 @@ def run(arg, usage):
         for i, j in enumerate(ina):
             start = time()
 
-            summ = work.exec(j, tld)
+            summ = work.exec(j, tld, arg["--raw"])
 
             out.verb(f"{summ:4} hits out of {len(tld):4} for \"{j}\"")
             if i < len(ina) - 1 and time() - start < pause:

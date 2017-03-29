@@ -1,7 +1,7 @@
-from sys import stdout
 from pprint import PrettyPrinter
+from sys import stdout
 
-from domfind.core import color
+from domfind.common import color
 
 
 class log:

@@ -1,1 +1,1 @@
-__all__ = ["color", "dns", "main", "meta", "tldroot", "work"]
+__all__ = ["dns", "main", "meta", "tldroot", "work"]

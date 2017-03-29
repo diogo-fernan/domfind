@@ -1,9 +1,10 @@
 from traceback import format_exc
 
-import dns, dns.name, dns.resolver
+import dns
+import dns.name
+import dns.resolver
 
-from domfind.common import out
-from domfind.core import color
+from domfind.common import color, out
 
 # A.ROOT-SERVERS.NET.      3600000      A     198.41.0.4
 ROOT_A = "198.41.0.4"
@@ -15,9 +16,8 @@ class DNSException(Exception):
         super(DNSException, self).__init__(self.msg)
 
 
-def __authns(dom):
-    # http://stackoverflow.com/questions/4066614/how-can-i-find-the-authoritative-dns-server-for-a-domain-using-dnspython
-
+# http://stackoverflow.com/questions/4066614/how-can-i-find-the-authoritative-dns-server-for-a-domain-using-dnspython
+def __authns(dom, raw=False):
     depth = 2
     ns = ROOT_A
     timeout = 16
@@ -99,20 +99,22 @@ def __authns(dom):
 
         depth += 1
 
-    out.info(f"SOA hit for \"{subdom}\"\n{rr}")
+    if raw:
+        print(subdom)
+    else:
+        out.info(f"SOA hit for \"{subdom}\"\n{rr}")
     return 1
 
 
-def query(dom, tld):
+def query(dom, tld, raw=False):
     n = 0
     for t in tld:
         try:
-            n += __authns(dom + "." + t)
+            n += __authns(dom + "." + t, raw)
         except DNSException as e:
             out.warn(f"DNS error: {e}\n{color.red(format_exc())}")
     return n
 
 
 def parseroot():
-    from domfind.core import meta
     pass

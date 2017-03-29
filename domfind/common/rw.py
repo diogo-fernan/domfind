@@ -30,7 +30,7 @@ def closef(fd):
 
 def readf(file, mode='rb'):
     with openf(file, mode=mode) as fd:
-        return fd.readlines()
+        return fd.read().splitlines()
 
 
 def writef(file, data, path=DATA_PATH):

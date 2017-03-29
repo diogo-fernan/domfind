@@ -1,1 +1,1 @@
-__all__ = ["out", "rw", "util"]
+__all__ = ["color", "out", "rw", "util"]

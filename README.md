@@ -13,7 +13,9 @@ The main purpose of *domfind* is to serve as an intelligence tool for incident r
 The supported options are the following:
 
 ```
-Usage: domfind [-h] [-b] [-d <file>] [-p <sec>] [-t <thread>] [-u] [-v ...] [<domain> ...]
+Usage: domfind [-h] [-p <sec>] [-r] [-t <thread>] [-u] [-v ...]
+               [-b | -d <file>]
+               [<domain> ...]
 
 Find identical domain names with SOA DNS records under different Top Level Domains (TLDs).
 
@@ -23,6 +25,7 @@ Options:
   -b, --bad            use the known-bad TLD file at data/known-bad-tld.txt
   -d, --domain <file>  use the specified custom TLD file [default: data/tlds-alpha-by-domain.txt]
   -p, --pause <num>    wait an interval in seconds between each input domain [default: 0]
+  -r, --raw            output raw hits (just the domain names)
   -t, --thread <num>   specify the size of the thread pool [default: number of CPU cores]
   -u, --update         update the local TLD list from IANA and the root name servers from InterNIC
   -v, --verbose        display verbose and debug messages
@@ -50,5 +53,7 @@ $ python3 domfind.py -vp 60 sub2.sub1.domain1 sub.domain2
 * Compile a list of known-bad hosting providers that allow the creation of subdomains under their own domain names.
 
 # Change History
+
+* *domfind* **20170329**: added `-r` as a means to output domain names only.
 
 * *domfind* **20170318**: first release.

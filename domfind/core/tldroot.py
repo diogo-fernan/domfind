@@ -2,8 +2,8 @@ from traceback import format_exc
 
 from requests import get as requests_get
 
-from domfind.common import out, rw
-from domfind.core import color, meta
+from domfind.common import color, out, rw
+from domfind.core import meta
 
 __timeout = 60
 
